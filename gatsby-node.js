@@ -422,6 +422,70 @@ exports.createSchemaCustomization = async ({ actions }) => {
       html: String!
       body: DatoCmsDatoCmsPageBodyStructuredText
     }
+
+    interface ShopPage implements Node {
+      id: ID!
+      title: String
+      description: String
+      image: HomepageImage
+      content: [HomepageBlock]
+      entityPayload: JSON
+    }
+
+    interface ShoppageBanner implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
+      image: HomepageImage
+      # DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
+    interface Shopallpage implements Node {
+      id: ID!
+      title: String
+      description: String
+      image: HomepageImage
+      content: [HomepageBlock]
+      entityPayload: JSON
+    }
+
+    interface ShopallpageHero implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      image: HomepageImage
+      # DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+  `)
+
+  // CMS specific types for Shop All page
+  actions.createTypes(/* GraphQL */ `
+    type DatoCmsShopallpageHero implements Node & ShopallpageHero & HomepageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      heading: String
+      image: HomepageImage
+    }
+
+    type DatoCmsShopallpage implements Node & Shopallpage @dontInfer {
+      id: ID!
+      title: String @proxy(from: "entityPayload.attributes.metadata.title")
+      description: String
+        @proxy(from: "entityPayload.attributes.metadata.description")
+      image: HomepageImage
+        @link(by: "originalId", from: "entityPayload.attributes.metadata.image")
+      content: [HomepageBlock]
+      entityPayload: JSON
+      originalId: String
+    }
   `)
 
   // CMS-specific types for Homepage
@@ -616,6 +680,32 @@ exports.createSchemaCustomization = async ({ actions }) => {
     }
   `)
 
+  // CMS specific types for Shop page
+  actions.createTypes(/* GraphQL */ `
+    type DatoCmsShoppageBanner implements Node & ShoppageBanner & HomepageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      heading: String
+      text: String
+      image: HomepageImage
+    }
+
+    type DatoCmsShoppage implements Node & ShopPage @dontInfer {
+      id: ID!
+      title: String @proxy(from: "entityPayload.attributes.metadata.title")
+      description: String
+        @proxy(from: "entityPayload.attributes.metadata.description")
+      image: HomepageImage
+        @link(by: "originalId", from: "entityPayload.attributes.metadata.image")
+      content: [HomepageBlock]
+      entityPayload: JSON
+      originalId: String
+    }
+  `)
+
   // CMS specific types for About page
   actions.createTypes(/* GraphQL */ `
     type DatoCmsAboutHero implements Node & AboutHero & HomepageBlock
@@ -750,4 +840,3 @@ exports.createPages = ({ actions }) => {
     component: require.resolve("./src/components/footer.js"),
   })
 }
-      

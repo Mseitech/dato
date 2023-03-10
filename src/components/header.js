@@ -7,7 +7,7 @@ import {
   FlexList,
   Space,
   NavLink,
-  Button,
+  /*Button,*/
   InteractiveIcon,
   Nudge,
   VisuallyHidden,
@@ -59,7 +59,7 @@ export default function Header() {
     }
   `)
 
-  const { navItems, cta } = data.layout.header
+  const { navItems/*, cta*/ } = data.layout.header
   const [isOpen, setOpen] = React.useState(false)
 
   React.useEffect(() => {
@@ -96,7 +96,7 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>{cta && <Button to={cta.href}>{cta.text}</Button>}</div>
+          {/*<div>{cta && <Button to={cta.href}>{cta.text}</Button>}</div>*/}
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
@@ -114,13 +114,13 @@ export default function Header() {
           </span>
           <Flex>
             <Space />
-            <div>
+            {/*<div>
               {cta && (
                 <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>
                   {cta.text}
                 </Button>
               )}
-            </div>
+              </div>*/}
             <Nudge right={3}>
               <InteractiveIcon
                 title="Toggle menu"

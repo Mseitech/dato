@@ -4,27 +4,35 @@ import Layout from "../components/layout"
 import * as sections from "../components/sections"
 import Fallback from "../components/fallback"
 import SEOHead from "../components/head"
+import ShopallpageAllproducts from "../components/shop-all-allproducts"
+import { Script } from "gatsby"
 
-export default function Homepage(props) {
-  const { homepage } = props.data
+const scripts = {
+  myLocalScript: `/buy-button.js`,
+}
+
+export default function Shopall(props) {
+  const { shopallpage } = props.data
 
   return (
     <Layout>
-      {homepage.blocks.map((block) => {
+      {shopallpage.blocks.map((block) => {
         const { id, blocktype, ...componentProps } = block
         const Component = sections[blocktype] || Fallback
         return <Component key={id} {...componentProps} />
       })}
+      <Script src={scripts.myLocalScript} />
+      <ShopallpageAllproducts />
     </Layout>
   )
 }
 export const Head = (props) => {
-  const { homepage } = props.data
-  return <SEOHead {...homepage} />
+  const { shopallpage } = props.data
+  return <SEOHead {...shopallpage} />
 }
 export const query = graphql`
   {
-    homepage {
+    shopallpage {
       id
       title
       description
@@ -35,10 +43,7 @@ export const query = graphql`
       blocks: content {
         id
         blocktype
-        ...HomepageHeroContent
-        ...HomepageLogoListContent
-        ...HomepageProductListContent
-        ...HomepageFeatureListContent
+        ...ShopallpageHeroContent
       }
     }
   }

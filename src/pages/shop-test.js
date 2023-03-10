@@ -5,12 +5,12 @@ import * as sections from "../components/sections"
 import Fallback from "../components/fallback"
 import SEOHead from "../components/head"
 
-export default function Homepage(props) {
-  const { homepage } = props.data
+export default function Shop(props) {
+  const { shopPage } = props.data
 
   return (
     <Layout>
-      {homepage.blocks.map((block) => {
+      {shopPage.blocks.map((block) => {
         const { id, blocktype, ...componentProps } = block
         const Component = sections[blocktype] || Fallback
         return <Component key={id} {...componentProps} />
@@ -19,12 +19,12 @@ export default function Homepage(props) {
   )
 }
 export const Head = (props) => {
-  const { homepage } = props.data
-  return <SEOHead {...homepage} />
+  const { shopPage } = props.data
+  return <SEOHead {...shopPage} />
 }
 export const query = graphql`
   {
-    homepage {
+    shopPage {
       id
       title
       description
@@ -35,10 +35,7 @@ export const query = graphql`
       blocks: content {
         id
         blocktype
-        ...HomepageHeroContent
-        ...HomepageLogoListContent
-        ...HomepageProductListContent
-        ...HomepageFeatureListContent
+        ...ShoppageBannerContent
       }
     }
   }
