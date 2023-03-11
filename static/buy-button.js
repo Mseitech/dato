@@ -1,4 +1,3 @@
-<script type="text/javascript">
 /*<![CDATA[*/
 (function () {
   var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
@@ -100,4 +99,3 @@
   }
 })();
 /*]]>*/
-</script>
