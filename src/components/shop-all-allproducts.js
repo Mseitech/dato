@@ -7,7 +7,7 @@ export default function ShopallpageAllproducts() {
   return (
     <Section>
       <Container>
-        <div id='product-component-1676814237027'></div>
+      <div id='collection-component-1678530978823'></div>
       </Container>
     </Section>
   )
