@@ -4,12 +4,12 @@ import { StaticImage } from "gatsby-plugin-image"
 export default function GatsbyDatoLogo() {
   return (
     <StaticImage
-    src="../images/logo-bear-xs.png"
+    src="../images/logo-stuffed-animals.png"
     alt="A dinosaur"
     placeholder="blurred"
     layout="fixed"
-    width={49}
-    height={38}
+    width={65}
+    height={74}
     />
     /*<svg
       width="82"

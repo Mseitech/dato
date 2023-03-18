@@ -1,0 +1,39 @@
+.shopallherobg {
+  background-image: url("../images/about-dato.png");
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  /* set height of outer div */
+  position: relative;
+}
+
+
+.shopallheroheader {
+  position: absolute;
+  /* set position to absolute */
+  top: 0;
+  /* set top to 0 to align with top of outer div */
+  left: 0;
+  /* set left to 0 to align with left of outer div */
+  right: 0;
+  /* set right to 0 to align with right of outer div */
+  bottom: 0;
+  /* set bottom to 0 to align with bottom of outer div */
+  margin: auto;
+  /* center horizontally and vertically */
+  height: 100%;
+  /* set height to 100% of outer div */
+  display: flex;
+  /* enable flexbox layout */
+  justify-content: center;
+  /* horizontally center content */
+  align-items: center;
+  /* vertically center content */
+}
+
+.section {
+  position: relative;
+  /* Set the position to relative so that the hero section is positioned relative to its parent element */
+  top: 0px;
+  padding: 0px;
+}

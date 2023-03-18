@@ -11,6 +11,10 @@ export { default as AboutStatList } from "./about-stat-list"
 export { default as AboutLeadership } from "./about-leadership"
 export { default as AboutLogoList } from "./about-logo-list"
 
-export { default as ShoppageBanner } from "./shop-banner"
 export { default as ShopallpageHero } from "./shop-all-hero"
 export { default as ShopallpageAllproducts } from "./shop-all-allproducts"
+
+export { default as ShopbearspageHero } from "./shop-bears-hero"
+export { default as ShopallBears } from "./shop-all-bears"
+
+
