@@ -5,6 +5,11 @@ import * as sections from "../components/sections"
 import Fallback from "../components/fallback"
 import SEOHead from "../components/head"
 import ShopallBears from "../components/shop-all-bears"
+import { Script } from "gatsby"
+
+const scripts = {
+  myLocalScript: `/buy-button-bears.js`,
+}
 
 export default function Shopbears(props) {
   const { shopbearspage } = props.data
@@ -16,6 +21,7 @@ export default function Shopbears(props) {
         const Component = sections[blocktype] || Fallback
         return <Component key={id} {...componentProps} />
       })}
+      <Script src={scripts.myLocalScript} />
       <ShopallBears />
     </Layout>
   )
