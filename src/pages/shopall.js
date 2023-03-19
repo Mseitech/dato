@@ -21,7 +21,7 @@ export default function Shopall(props) {
         const Component = sections[blocktype] || Fallback
         return <Component key={id} {...componentProps} />
       })}
-      <Script src="https://gatsbydatoanimalsshop.s3.eu-north-1.amazonaws.com/buy-button.js" strategy="idle"/>
+      <Script src="https://gatsbydatoanimalsshop.s3.eu-north-1.amazonaws.com/buy-button.js"/>
       <ShopallpageAllproducts />
     </Layout>
   )
