@@ -21,7 +21,7 @@ export default function Shopall(props) {
         const Component = sections[blocktype] || Fallback
         return <Component key={id} {...componentProps} />
       })}
-      <Script src={scripts.myLocalScript} />
+      <Script src={scripts.myLocalScript} strategy="idle" />
       <ShopallpageAllproducts />
     </Layout>
   )
