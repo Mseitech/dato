@@ -7,9 +7,9 @@ import SEOHead from "../components/head"
 import ShopallpageAllproducts from "../components/shop-all-allproducts"
 import { Script } from "gatsby"
 
-const scripts = {
+/*const scripts = {
   myLocalScript: `/buy-button.js`,
-}
+}*/
 
 export default function Shopall(props) {
   const { shopallpage } = props.data
@@ -21,7 +21,7 @@ export default function Shopall(props) {
         const Component = sections[blocktype] || Fallback
         return <Component key={id} {...componentProps} />
       })}
-      <Script src={scripts.myLocalScript} strategy="idle" />
+      <Script src="https://gatsbydatoanimalsshop.s3.eu-north-1.amazonaws.com/buy-button.js" strategy="idle"/>
       <ShopallpageAllproducts />
     </Layout>
   )
