@@ -460,6 +460,25 @@ exports.createSchemaCustomization = async ({ actions }) => {
       originalId: String
       entityPayload: JSON
     }
+
+    interface Shopunicornspage implements Node {
+      id: ID!
+      title: String
+      description: String
+      image: HomepageImage
+      content: [HomepageBlock]
+      entityPayload: JSON
+    }
+
+    interface ShopunicornspageHero implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      image: HomepageImage
+      # DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
   `)
 
   // CMS specific types for Shop All page
@@ -512,6 +531,30 @@ exports.createSchemaCustomization = async ({ actions }) => {
     }
   `)
 
+    // CMS specific types for Shop Unicorns page
+    actions.createTypes(/* GraphQL */ `
+    type DatoCmsShopunicornspageHero implements Node & ShopunicornspageHero & HomepageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      heading: String
+      image: HomepageImage
+    }
+
+    type DatoCmsShopunicornspage implements Node & Shopunicornspage @dontInfer {
+      id: ID!
+      title: String @proxy(from: "entityPayload.attributes.metadata.title")
+      description: String
+        @proxy(from: "entityPayload.attributes.metadata.description")
+      image: HomepageImage
+        @link(by: "originalId", from: "entityPayload.attributes.metadata.image")
+      content: [HomepageBlock]
+      entityPayload: JSON
+      originalId: String
+    }
+  `)
   // CMS-specific types for Homepage
   actions.createTypes(/* GraphQL */ `
     type DatoCmsHomepageLink implements Node & HomepageLink {

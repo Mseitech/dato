@@ -17,4 +17,7 @@ export { default as ShopallpageAllproducts } from "./shop-all-allproducts"
 export { default as ShopbearspageHero } from "./shop-bears-hero"
 export { default as ShopallBears } from "./shop-all-bears"
 
+export { default as ShopunicornspageHero } from "./shop-unicorns-hero"
+export { default as ShopallUnicorns } from "./shop-all-unicorns"
+
 

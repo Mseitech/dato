@@ -1,5 +1,5 @@
-.shopallherobg {
-  background-image: url("../images/shop-all-hero.avif");
+.shopunicornsherobg {
+  background-image: url("../images/about-dato.avif");
   background-size: cover;
   background-position: center;
   height: 150px;
@@ -8,7 +8,7 @@
 }
 
 
-.shopallheroheader {
+.shopunicornsheroheader {
   position: absolute;
   /* set position to absolute */
   top: 0;
@@ -29,10 +29,6 @@
   /* horizontally center content */
   align-items: center;
   /* vertically center content */
-  background-color: #4931315b;
-  /* replace with your desired background color */
-  color: #f9f5f4;
-  /* replace with your desired text color */
 }
 
 .section {
